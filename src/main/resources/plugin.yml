@@ -1,0 +1,7 @@
+name: UsefulFilter
+version: ${project.version}
+main: me.pastelrobots.usefulfilter.UsefulFilter
+prefix: UsefulFilter
+authors: [ PastelRobots ]
+description: A simple light-weight swear filter plugin!
+website: https://discord.gg/VtgcZRnmMR

@@ -1,0 +1,11 @@
+
+# Hello and welcome to the config.yml file!
+# I tried to simplify this as much as possible!
+
+badwords:
+  - "fuck"
+  - "shit" # I'll let you add the rest O_O
+
+console:
+  enabled-msg: true # Will send a message in console if enabled.
+  debug-mode: false # Sends messages in console! Only enable when there's an issue!
