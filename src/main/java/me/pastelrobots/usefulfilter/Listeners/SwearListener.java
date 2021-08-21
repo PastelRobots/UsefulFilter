@@ -1,6 +1,7 @@
 package me.pastelrobots.usefulfilter.Listeners;
 
 import me.pastelrobots.usefulfilter.UsefulFilter;
+import me.pastelrobots.usefulfilter.Utils;
 import me.xdrop.fuzzywuzzy.FuzzySearch;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -14,22 +15,22 @@ public class SwearListener implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         if(e.getPlayer().hasPermission("usefulfilter.bypass")) return;
-        Bukkit.getLogger().info("Splitting words");
+        Utils.logInfo("Splitting words");
         for (String word : e.getMessage().split(" ")) {
-            Bukkit.getLogger().info("Checking if words match badwords");
+            Utils.logInfo("Checking if words match badwords");
             for(String swear : bannedwordsarray) {
-                Bukkit.getLogger().info("Checking if words contain swears");
-                    Bukkit.getLogger().info("Checking word similarity");
+                Utils.logInfo("Checking if words contain swears");
+                Utils.logInfo("Checking word similarity");
                     int ratio = FuzzySearch.ratio(word, swear);
-                    Bukkit.getLogger().info("Checking if ratio meets threshold");
-                    Bukkit.getLogger().info(String.valueOf(ratio));
+                    Utils.logInfo("Checking if ratio meets threshold");
+                    Utils.logInfo(String.valueOf(ratio));
                     if (ratio > UsefulFilter.plugin.getConfig().getInt("ratio-threshold")) {
-                        Bukkit.getLogger().info("Checking if ratio meets threshold");
+                        Utils.logInfo("Checking if ratio meets threshold");
                         String string = e.getMessage().replace(word, "****");
-                        Bukkit.getLogger().info(string);
-                        Bukkit.getLogger().info("Setting msg");
+                        Utils.logInfo(string);
+                        Utils.logInfo("Setting msg");
                         e.setMessage(string);
-                        Bukkit.getLogger().info(e.getMessage());
+                        Utils.logInfo(e.getMessage());
                     }
                 }
             }
