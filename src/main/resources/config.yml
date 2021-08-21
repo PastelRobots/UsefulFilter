@@ -3,8 +3,11 @@
 # I tried to simplify this as much as possible!
 
 badwords:
-  - "fuck"
-  - "shit" # I'll let you add the rest O_O
+  - "apples" # Example: "I like apples." > "I like ****."
+
+ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
+
+censor: "****" # What the filtered word will show up as
 
 console:
   enabled-msg: true # Will send a message in console if enabled.

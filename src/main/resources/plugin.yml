@@ -5,3 +5,8 @@ prefix: UsefulFilter
 authors: [ PastelRobots ]
 description: A simple light-weight swear filter plugin!
 website: https://discord.gg/VtgcZRnmMR
+
+permissions:
+  usefulfilter.bypass:
+    description: Allows you to bypass the word filter, lucky you!
+    default: op
