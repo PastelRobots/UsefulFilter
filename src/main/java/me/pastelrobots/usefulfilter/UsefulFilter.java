@@ -21,6 +21,10 @@ public final class UsefulFilter extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         createCustomConfig();
+        int pluginId = 12522;
+        Metrics metrics = new Metrics(this, pluginId);
+
+        metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
         getServer().getPluginManager().registerEvents(new SwearListener(), this);
         Utils.logInfo("Debug mode is enabled!");
         if (plugin.getConfig().getBoolean("console.enabled-msg")) {
