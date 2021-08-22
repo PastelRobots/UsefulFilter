@@ -2,12 +2,18 @@
 # Hello and welcome to the config.yml file!
 # I tried to simplify this as much as possible!
 
+swear-checker-enabled: true
 badwords:
   - "apples" # Example: "I like apples." > "I like ****."
 
 ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
-
 censor: "****" # What the filtered word will show up as
+kick-player-on-swear: false
+
+caps-checker-enabled: true
+caps-checker-percentage: 65
+kick-player-on-caps: false
+kick-caps-percentage: 100
 
 console:
   enabled-msg: true # Will send a message in console if enabled.

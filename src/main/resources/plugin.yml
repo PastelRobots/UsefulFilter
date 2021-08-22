@@ -10,3 +10,9 @@ permissions:
   usefulfilter.bypass:
     description: Allows you to bypass the word filter, lucky you!
     default: op
+commands:
+  reload:
+    description: Reloads the config
+    aliases: ["ufreload", "uf-reload", "configreload"]
+    permission: usefulfilter.reload
+    usage: /ucreload
