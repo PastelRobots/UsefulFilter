@@ -1,5 +1,6 @@
 package me.pastelrobots.usefulfilter;
 
+import com.tchristofferson.configupdater.ConfigUpdater;
 import me.pastelrobots.usefulfilter.commands.ReloadCommand;
 import me.pastelrobots.usefulfilter.listeners.AdListener;
 import me.pastelrobots.usefulfilter.listeners.CapsListener;
@@ -14,6 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Set;
 
 public final class UsefulFilter extends JavaPlugin {
@@ -26,6 +28,16 @@ public final class UsefulFilter extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         createCustomConfig();
+        saveDefaultConfig();
+        File configFile = new File(getDataFolder(), "config.yml");
+
+        try {
+            ConfigUpdater.update(plugin, "config.yml", configFile, Arrays.asList());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        reloadConfig();
         int pluginId = 12522;
         Metrics metrics = new Metrics(this, pluginId);
 

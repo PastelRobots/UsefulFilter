@@ -85,5 +85,10 @@
             <artifactId>fuzzywuzzy</artifactId>
             <version>1.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.tchristofferson</groupId>
+            <artifactId>ConfigUpdater</artifactId>
+            <version>1.2-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>
