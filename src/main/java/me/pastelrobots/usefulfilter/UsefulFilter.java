@@ -1,6 +1,7 @@
 package me.pastelrobots.usefulfilter;
 
 import me.pastelrobots.usefulfilter.commands.ReloadCommand;
+import me.pastelrobots.usefulfilter.listeners.AdListener;
 import me.pastelrobots.usefulfilter.listeners.CapsListener;
 import me.pastelrobots.usefulfilter.listeners.SwearListener;
 import org.bukkit.Bukkit;
@@ -31,6 +32,7 @@ public final class UsefulFilter extends JavaPlugin {
         metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
         getServer().getPluginManager().registerEvents(new SwearListener(), this);
         getServer().getPluginManager().registerEvents(new CapsListener(), this);
+        getServer().getPluginManager().registerEvents(new AdListener(), this);
         Utils.logInfo("Debug mode is enabled!");
         if (plugin.getConfig().getBoolean("console.enabled-msg")) {
             Bukkit.getLogger().info(ChatColor.GOLD + "=============================================");

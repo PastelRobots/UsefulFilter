@@ -8,13 +8,15 @@ badwords:
 
 ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
 censor: "****" # What the filtered word will show up as
-kick-player-on-swear: false
 
 caps-checker-enabled: true
 caps-checker-percentage: 65
-kick-player-on-caps: false
-kick-caps-percentage: 100
+
+ad-checker-enabled: true
+whitelisted-websites:
+  - 'cubemc.club'
+  - '123.456.7.8'
+  - 'google.com'
 
 console:
   enabled-msg: true # Will send a message in console if enabled.
-  debug-mode: false # Sends messages in console! Only enable when there's an issue!

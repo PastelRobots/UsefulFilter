@@ -12,12 +12,13 @@ import java.util.Map;
 import java.util.Set;
 
 public final class Config {
+
     public static int getInt(String intpath) {
         return UsefulFilter.plugin.getConfig().getInt(intpath);
     }
 
     public static boolean getBoolean(String booleanpath) {
-       return UsefulFilter.plugin.getConfig().getBoolean(booleanpath);
+        return UsefulFilter.plugin.getConfig().getBoolean(booleanpath);
     }
 
     public static double getDouble(String doublepath) {

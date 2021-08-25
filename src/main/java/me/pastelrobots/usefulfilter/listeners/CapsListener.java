@@ -34,11 +34,6 @@ public class CapsListener implements Listener {
             Utils.logInfo("Changing msg");
             e.setMessage(msgLower);
             e.getPlayer().sendMessage(ChatColor.RED + "Watch the caps!");
-            if(Config.getBoolean("kick-player-on-caps")) {
-                if(pct >= Config.getDouble("kick-caps-percentage")) {
-                    e.getPlayer().kickPlayer(ChatColor.RED + "Watch the caps!");
-                }
-            }
         }
 
     }

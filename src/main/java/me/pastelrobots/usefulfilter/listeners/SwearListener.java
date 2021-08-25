@@ -1,7 +1,6 @@
 package me.pastelrobots.usefulfilter.listeners;
 
 import me.pastelrobots.usefulfilter.Config;
-import me.pastelrobots.usefulfilter.UsefulFilter;
 import me.pastelrobots.usefulfilter.Utils;
 import me.xdrop.fuzzywuzzy.FuzzySearch;
 import org.bukkit.ChatColor;
@@ -15,7 +14,9 @@ public class SwearListener implements Listener {
     List<String> bannedwordsarray = Config.getStringList("badwords");
     @EventHandler
     public void onPlayerSwear(AsyncPlayerChatEvent e) {
+        Utils.logInfo("Checking if config has swear checker enabled");
         if(!Config.getBoolean("swear-checker-enabled")) return;
+        Utils.logInfo("Checking if player has bypass perms");
         if(e.getPlayer().hasPermission("usefulfilter.bypass")) return;
         Utils.logInfo("Splitting words");
         for (String word : e.getMessage().split(" ")) {
@@ -33,10 +34,6 @@ public class SwearListener implements Listener {
                         Utils.logInfo("Setting msg");
                         e.setMessage(string);
                         Utils.logInfo(e.getMessage());
-                        e.getPlayer().sendMessage(ChatColor.RED + "The word: \"" + swear + "\" is deemed disruptive. Please refrain from saying it!");
-                        if(Config.getBoolean("kick-player-on-swear")) {
-                            e.getPlayer().kickPlayer(ChatColor.RED + "The word: \"" + swear + "\" is deemed disruptive. Please refrain from saying it!");
-                        }
                     }
                 }
             }
