@@ -1,6 +1,6 @@
 package me.pastelrobots.usefulfilter.commands;
 
-import me.pastelrobots.usefulfilter.UsefulFilter;
+import me.pastelrobots.usefulfilter.UsefulChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -12,16 +12,12 @@ public class ReloadCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender s, Command c, String l, String[] args) {
         if(s instanceof Player p) {
-            if (p.hasPermission("usefulfilter.reload")) {
-                UsefulFilter.plugin.reloadConfig();
-                UsefulFilter.plugin.getPluginLoader().disablePlugin(UsefulFilter.plugin);
-                UsefulFilter.plugin.getPluginLoader().enablePlugin(UsefulFilter.plugin);
+            if (p.hasPermission("usefulchat.reload")) {
+                UsefulChat.plugin.reloadConfig();
                 p.sendMessage(ChatColor.GREEN + "Config reloaded!");
                 Bukkit.getLogger().info(ChatColor.GREEN + "Config reloaded!");
             } else {
-                UsefulFilter.plugin.reloadConfig();
-                UsefulFilter.plugin.getPluginLoader().disablePlugin(UsefulFilter.plugin);
-                UsefulFilter.plugin.getPluginLoader().enablePlugin(UsefulFilter.plugin);
+                UsefulChat.plugin.reloadConfig();
                 Bukkit.getLogger().info(ChatColor.GREEN + "Config reloaded!");
             }
         }

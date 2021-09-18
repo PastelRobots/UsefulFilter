@@ -1,18 +1,54 @@
-name: UsefulFilter
+name: UsefulChat
 version: ${project.version}
-main: me.pastelrobots.usefulfilter.UsefulFilter
-prefix: UsefulFilter
+main: me.pastelrobots.usefulfilter.UsefulChat
+prefix: UsefulChat
 authors: [ PastelRobots ]
 description: A simple light-weight swear filter plugin!
 website: https://discord.gg/VtgcZRnmMR
 
 permissions:
-  usefulfilter.bypass:
-    description: Allows you to bypass the word filter, lucky you!
+  usefulchat.bypass:
+    description: Allows you to bypass the filters, lucky you!
     default: op
+    children:
+      usefulchat.bypass.ad: true
+      usefulchat.bypass.bot: true
+      usefulchat.bypass.caps: true
+      usefulchat.bypass.spam: true
+      usefulchat.bypass.swear: true
+  usefulchat.bypass.ad:
+    description: Allows you to bypass the ad blocker!
+    default: op
+  usefulchat.bypass.bot:
+    description: Allows you to bypass the bot blocker!
+    default: op
+  usefulchat.bypass.caps:
+    description: Allows you to bypass the caps blocker!
+    default: op
+  usefulchat.bypass.spam:
+    description: Allows you to bypass the spam blocker!
+    default: op
+  usefulchat.bypass.swear:
+    description: Allows you to bypass the swear blocker!
+    default: op
+  usefulchat.broadcast:
+    description: Allows you to broadcast a message to the server!
+    default: op
+  usefulchat.reload:
+    description: Allows you to reload the plugin!
+    default: op
+
 commands:
   reload:
     description: Reloads the config
-    aliases: ["ufreload", "uf-reload", "configreload"]
-    permission: usefulfilter.reload
+    aliases: ["ucreload", "uc-reload", "configreload"]
+    permission: usefulchat.reload
     usage: /ucreload
+  message:
+    description: Sends a custom formatted message
+    aliases: ["msg", "tell", "whisper", "w"]
+    usage: /message <user> <message>
+  broadcast:
+    description: Broadcasts a message to the server!
+    aliases: ["bc", "announce"]
+    usage: /broadcast <message>

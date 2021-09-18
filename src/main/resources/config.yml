@@ -2,21 +2,60 @@
 # Hello and welcome to the config.yml file!
 # I tried to simplify this as much as possible!
 
-swear-checker-enabled: true
-badwords:
-  - "apples" # Example: "I like apples." > "I like ****."
+modules:
+  swear-checker:
+    swear-checker-enabled: true
+    badwords:
+      - "apples" # Example: "I like apples." > "I like ****."
+    ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
+    censor: "****" # What the filtered word will show up as
+  caps-checker:
+    caps-checker-enabled: true
+    caps-checker-percentage: 65
+  ad-checker:
+    ad-checker-enabled: true
+    whitelisted-websites:
+      - 'cubemc.club'
+      - '123.456.7.8'
+      - 'google.com'
+    ad-message: "&cPlease refrain from advertising, %player%!"
+  spam-checker:
+    spam-checker-enabled: true
+    cooldown: 15
+  anti-bot:
+    enabled: true
+    mute-messages-until-moved: true
+    join-message: "&6You cannot chat until you move!"
+    tried-to-chat-message: "&cTo prevent bots from flooding the server chat, you must move in order to send messages!"
+    success-message: "&aYou can now send messages!"
+  welcome-message:
+    enabled: true
+    msg:
+      - "&8x---------------------------------------------------x"
+      - "&fWelcome to &dMyServer! &fThis is the &dChangeThisInTheConfig &fRealm!"
+      - "&fHave fun on the server!"
+      - ""
+      - "&dRecommended Version: &f1.17.1"
+      - "&dChangelog:"
+      - "&f- I changed this in the config!"
+      - ""
+      - "&8x---------------------------------------------------x"
+  message-format:
+    enabled: true
+    receive-format: "&dFrom &7%player% &8>> &f%message%"
+    send-format: "&dTo &7%target% &8>> &f%message%"
+    invalid-msg: "&cCouldn't send a message to %target%!"
+    sent-to-self-msg: "&cWhy would you want to message yourself?"
 
-ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
-censor: "****" # What the filtered word will show up as
+commands:
+  broadcast-command:
+    enabled: true
+    message: "&9&lUsefulChat &8>> &f%message%"
+    no-permission: "&cYou do not have permission to the run this command!"
 
-caps-checker-enabled: true
-caps-checker-percentage: 65
 
-ad-checker-enabled: true
-whitelisted-websites:
-  - 'cubemc.club'
-  - '123.456.7.8'
-  - 'google.com'
+
 
 console:
   enabled-msg: true # Will send a message in console if enabled.
+  debug-mode: false

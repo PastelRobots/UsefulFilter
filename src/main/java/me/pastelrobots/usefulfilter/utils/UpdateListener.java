@@ -1,4 +1,4 @@
-package me.pastelrobots.usefulfilter;
+package me.pastelrobots.usefulfilter.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
