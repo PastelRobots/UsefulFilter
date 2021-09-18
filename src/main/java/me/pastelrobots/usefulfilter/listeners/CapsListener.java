@@ -1,14 +1,18 @@
 package me.pastelrobots.usefulfilter.listeners;
 
+import me.pastelrobots.usefulfilter.UsefulChat;
 import me.pastelrobots.usefulfilter.utils.Config;
 import me.pastelrobots.usefulfilter.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class CapsListener implements Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onPlayerCaps(AsyncPlayerChatEvent e) {
 
         Utils.logInfo("Checking if player has bypass perms");
@@ -33,7 +37,12 @@ public class CapsListener implements Listener {
             String msgLower = e.getMessage().toLowerCase();
             Utils.logInfo("Changing msg");
             e.setMessage(msgLower);
-            e.getPlayer().sendMessage(ChatColor.RED + "Watch the caps!");
+            e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', Config.getString("modules.caps-checker.message").replace("%player%", e.getPlayer().getName()).replace("%percentage%", String.valueOf(Config.getInt("modules.caps-checker.caps-checker-percentage")))));
+            for (Player staff : Bukkit.getOnlinePlayers()) {
+                if (staff.isOp())
+                    staff.sendMessage(ChatColor.RED + e.getPlayer().getName() + " was caught using caps!");
+            }
+            UsefulChat.plugin.getLogger().info(ChatColor.RED + e.getPlayer().getName() + " was caught using caps!");
         }
 
     }

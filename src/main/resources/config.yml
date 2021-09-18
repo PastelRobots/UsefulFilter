@@ -9,9 +9,11 @@ modules:
       - "apples" # Example: "I like apples." > "I like ****."
     ratio-threshold: 70 # Only change if you know what you're doing! (Strictness of the swear detector)
     censor: "****" # What the filtered word will show up as
+    message: "&cThe word '%word%' is considered disruptive. Please refrain from using it, %player%!"
   caps-checker:
     caps-checker-enabled: true
     caps-checker-percentage: 65
+    message: "&cWatch the caps %player%! Over %percentage%% of your message was capitalized!"
   ad-checker:
     ad-checker-enabled: true
     whitelisted-websites:
@@ -20,14 +22,21 @@ modules:
       - 'google.com'
     ad-message: "&cPlease refrain from advertising, %player%!"
   spam-checker:
-    spam-checker-enabled: true
-    cooldown: 15
+    chat-spam: true
+    command-spam: true
+    cooldown: 5 # In seconds
+    message: "&cPlease refrain from spamming, %player%! You are on cooldown for &e%secs%&c seconds."
   anti-bot:
     enabled: true
     mute-messages-until-moved: true
     join-message: "&6You cannot chat until you move!"
     tried-to-chat-message: "&cTo prevent bots from flooding the server chat, you must move in order to send messages!"
     success-message: "&aYou can now send messages!"
+  unicode-checker:
+    enabled: true
+    whitelist:
+      - "ඞ"
+    message: "&cPlease refrain from using unicode, %player%"
   welcome-message:
     enabled: true
     msg:

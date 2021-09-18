@@ -16,6 +16,7 @@ permissions:
       usefulchat.bypass.caps: true
       usefulchat.bypass.spam: true
       usefulchat.bypass.swear: true
+      usefulchat.bypass.unicode: true
   usefulchat.bypass.ad:
     description: Allows you to bypass the ad blocker!
     default: op
@@ -36,6 +37,9 @@ permissions:
     default: op
   usefulchat.reload:
     description: Allows you to reload the plugin!
+    default: op
+  usefulchat.bypass.unicode:
+    description: Allows you to bypass the unicode blocker!
     default: op
 
 commands:

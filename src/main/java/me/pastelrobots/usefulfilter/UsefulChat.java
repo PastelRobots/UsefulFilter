@@ -48,6 +48,7 @@ public final class UsefulChat extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SpamListener(), this);
         getServer().getPluginManager().registerEvents(new JoinListener(), this);
         getServer().getPluginManager().registerEvents(new BotListener(), this);
+        getServer().getPluginManager().registerEvents(new UnicodeListener(), this);
 
         Utils.logInfo("Debug mode is enabled!");
         if (plugin.getConfig().getBoolean("console.enabled-msg")) {
